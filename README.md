@@ -1,1 +1,1 @@
-test
+Much of this code was inspired from [this source](https://github.com/tthustla/efficient_frontier/blob/master/Efficient%20_Frontier_implementation.ipynb), although I have gone through and tried to optimize, organize, and clarify some of what they do here. Additionally, I added an implementation of our algorithm developed over this summer to compare against scipy.  
