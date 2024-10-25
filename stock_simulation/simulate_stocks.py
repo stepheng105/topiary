@@ -2,8 +2,6 @@ import pandas as pd
 import numpy as np
 import math
 
-pd.options.mode.chained_assignment = None  # Avoids annoying error messages (sometimes)
-
 
 # Construct simulated data
 # Using geometric brownian motion to model
