@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Cook"
+  given-names: "Stephen"
+- family-names: "Manke"
+  given-names: "Adam"
+- family-names: "Tully-Doyle"
+  given-names: "Ryan"
+title: "Algorithm for Finding the Efficient Frontier using Topiaric Methods"
+version: 2.0.4
+date-released: 2024-11-01
+url: "https://github.com/stepheng105/topiary"
