@@ -15,11 +15,12 @@ def plot_stock_data(data, T, dt, S0s, drift_mus, std_dev_sigmas, lognormal=False
         else:
             y2 = S0 * np.exp(RISK_FREE_INTEREST_RATE * t)  # Risk-free interest rate
             y3 = S0 * np.exp(drift_mu * t)  # Drift
-
+        plt.figure()
         plt.plot(t, y1)
-        plt.plot(t, y2, color='red')
+        # plt.plot(t, y2, color='red')
         plt.plot(t, y3, color='purple')
-        plt.show()
+        # plt.gca().set_aspect('equal', adjustable='box')
+        plt.savefig('Geometric_Brownian.png', dpi=300)
         print("stock =", txt)
         print("mu =", drift_mus[i])
         print("sigma =", std_dev_sigmas[i])

@@ -17,7 +17,7 @@ import scipy as sci
 #   results (numpy matrix): An (3)x(num_portfolios) matrix, where the first column corresponds to the standard deviations,
 #                           the second column corresponds to the expected returns, and the third column corresponds to the
 #                           Sharpe ratios for each random portfolio
-def random_portfolios(num_portfolios, mean_returns, cov_matrix, risk_free_rate, T):
+def random_portfolios(num_portfolios, mean_returns, cov_matrix, const_for_eta, T):
     results = np.zeros((3, num_portfolios))
     T_root = math.sqrt(T)
     for i in range(num_portfolios):
@@ -27,7 +27,7 @@ def random_portfolios(num_portfolios, mean_returns, cov_matrix, risk_free_rate, 
         portfolio_return = portfolio_expected_return(weights, mean_returns, T)
         results[0, i] = portfolio_std_dev  # Standard deviation
         results[1, i] = portfolio_return  # expected return
-        results[2, i] = (portfolio_return - risk_free_rate) / portfolio_std_dev  # Sharpe ratio
+        results[2, i] = -negative_eta(weights, mean_returns, cov_matrix, const_for_eta)
     return results
 
 
@@ -149,7 +149,7 @@ def efficient_return(mean_returns, cov_matrix, target_mean, T, tolerance):
 #   T (int): The number of periods measured per year
 # Output:
 #   efficients (list): A list of the portfolio weights that lie on the efficient frontier
-def efficient_frontier(mean_returns, cov_matrix, target_means, T, tolerance):
+def efficient_frontier(target_means, cov_matrix, mean_returns, T, tolerance):
     length = len(target_means)
     efficients = [None] * length
     for i in range(length):
